@@ -30,7 +30,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
       {:ecto_sql, "~> 3.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:excoveralls, "~> 0.10", only: :test, runtime: false},
-      {:geolix, github: "elixir-geolix/geolix", rev: "ccd4a5d56b992ef65b9cebf0b25b12fb4529929b"},
+      {:geolix, github: "elixir-geolix/geolix", ref: "ccd4a5d56b992ef65b9cebf0b25b12fb4529929b"},
       {:postgrex, ">= 0.0.0"}
     ]
   end
