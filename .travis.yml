@@ -7,6 +7,10 @@ jobs:
       stage: test
       elixir: 1.6.6
       otp_release: 19.3
+      services:
+        - postgresql
+      before_script:
+        - psql -c "ALTER USER CURRENT_USER WITH PASSWORD 'postgres';" -U postgres
     - <<: *test
       elixir: 1.7.4
       otp_release: 20.3

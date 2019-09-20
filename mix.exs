@@ -9,6 +9,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
       name: "Geolix Adapter: MaxMind CSV",
       version: "0.1.0-dev",
       elixir: "~> 1.6",
+      aliases: aliases(),
       deps: deps(),
       description: "MaxMind CSV adapter for Geolix",
       dialyzer: dialyzer(),
@@ -20,6 +21,12 @@ defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
         "coveralls.travis": :test
       ],
       test_coverage: [tool: ExCoveralls]
+    ]
+  end
+
+  defp aliases do
+    [
+      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]
     ]
   end
 
