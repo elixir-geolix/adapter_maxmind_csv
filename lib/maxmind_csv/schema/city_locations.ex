@@ -1,9 +1,9 @@
-defmodule Geolix.Adapter.MaxMindCSV.Schema.Locations do
+defmodule Geolix.Adapter.MaxMindCSV.Schema.CityLocations do
   @moduledoc false
 
   use Ecto.Schema
 
-  schema "geolix_maxmind_csv_locations" do
+  schema "geolix_maxmind_csv_city_locations" do
     field :geoname_id, :integer
     field :locale_code, :string
     field :continent_code, :string
