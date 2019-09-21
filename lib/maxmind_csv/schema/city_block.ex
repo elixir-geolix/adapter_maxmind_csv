@@ -1,4 +1,4 @@
-defmodule Geolix.Adapter.MaxMindCSV.Schema.CityBlocks do
+defmodule Geolix.Adapter.MaxMindCSV.Schema.CityBlock do
   @moduledoc false
 
   use Ecto.Schema

@@ -1,4 +1,4 @@
-defmodule Geolix.Adapter.MaxMindCSV.Schema.CityLocations do
+defmodule Geolix.Adapter.MaxMindCSV.Schema.CityLocation do
   @moduledoc false
 
   use Ecto.Schema
