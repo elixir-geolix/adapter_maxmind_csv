@@ -3,9 +3,11 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CountryBlock do
 
   use Ecto.Schema
 
+  @primary_key false
+
   schema "geolix_maxmind_csv_country_blocks" do
-    field :network_lower, :decimal
-    field :network_upper, :decimal
+    field :network_lower, :decimal, primary_key: true
+    field :network_upper, :decimal, primary_key: true
     field :geoname_id, :integer
     field :registered_country_geoname_id, :integer
     field :represented_country_geoname_id, :integer
