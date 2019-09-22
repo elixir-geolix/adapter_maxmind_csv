@@ -11,4 +11,6 @@ if Mix.env() == :test do
     database: "geolix_adapter_maxmind_csv",
     hostname: "localhost",
     pool: Ecto.Adapters.SQL.Sandbox
+
+  config :logger, level: :warn
 end
