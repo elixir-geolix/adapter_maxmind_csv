@@ -22,7 +22,10 @@ defmodule Geolix.Adapter.MaxMindCSV.Repo.Migrations.SchemasCountry do
       add :is_in_european_union, :boolean
     end
 
-    create index("geolix_maxmind_csv_country_blocks", [:network_lower, :network_upper], unique: true)
+    create index("geolix_maxmind_csv_country_blocks", [:network_lower, :network_upper],
+             unique: true
+           )
+
     create index("geolix_maxmind_csv_country_locations", [:geoname_id], unique: true)
   end
 end
