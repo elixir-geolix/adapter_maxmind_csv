@@ -15,7 +15,9 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.ASNTest do
     database = %{
       id: :csv_lookup_asn,
       adapter: Geolix.Adapter.MaxMindCSV,
-      type: :asn
+      repo: Geolix.Adapter.MaxMindCSV.Repo,
+      schema: Geolix.Adapter.MaxMindCSV.Schema.ASNBlock,
+      preloads: []
     }
 
     assert :ok == Geolix.load_database(database)

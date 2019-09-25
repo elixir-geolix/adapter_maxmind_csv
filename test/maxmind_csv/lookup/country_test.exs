@@ -31,7 +31,9 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.CountryTest do
     database = %{
       id: :csv_lookup_country,
       adapter: Geolix.Adapter.MaxMindCSV,
-      type: :country
+      repo: Geolix.Adapter.MaxMindCSV.Repo,
+      schema: Geolix.Adapter.MaxMindCSV.Schema.CountryBlock,
+      preloads: [:location]
     }
 
     assert :ok == Geolix.load_database(database)
