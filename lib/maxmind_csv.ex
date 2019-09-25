@@ -17,7 +17,7 @@ defmodule Geolix.Adapter.MaxMindCSV do
         ]
   """
 
-  import Ecto.Query, only: [where: 3]
+  import Ecto.Query, only: [preload: 2, where: 3]
 
   alias Geolix.Adapter.MaxMindCSV.IP
   alias Geolix.Adapter.MaxMindCSV.Repo
@@ -25,19 +25,26 @@ defmodule Geolix.Adapter.MaxMindCSV do
   alias Geolix.Adapter.MaxMindCSV.Schema.CityBlock
   alias Geolix.Adapter.MaxMindCSV.Schema.CountryBlock
 
+  @preloads_asn []
+  @preloads_city [:location, :location_registered, :location_represented]
+  @preloads_country [:location]
+
   @behaviour Geolix.Adapter
 
   @impl Geolix.Adapter
 
-  def lookup(ip, _opts, %{type: :asn}), do: perform_lookup(ip, ASNBlock)
-  def lookup(ip, _opts, %{type: :city}), do: perform_lookup(ip, CityBlock)
-  def lookup(ip, _opts, %{type: :country}), do: perform_lookup(ip, CountryBlock)
+  def lookup(ip, _opts, %{type: :asn}), do: perform_lookup(ip, ASNBlock, @preloads_asn)
+  def lookup(ip, _opts, %{type: :city}), do: perform_lookup(ip, CityBlock, @preloads_city)
 
-  defp perform_lookup(ip, schema) do
+  def lookup(ip, _opts, %{type: :country}),
+    do: perform_lookup(ip, CountryBlock, @preloads_country)
+
+  defp perform_lookup(ip, schema, preloads) do
     ip_integer = IP.to_integer(ip)
 
     schema
     |> where([b], b.network_lower <= ^ip_integer and b.network_upper >= ^ip_integer)
+    |> preload(^preloads)
     |> Repo.one()
   end
 end

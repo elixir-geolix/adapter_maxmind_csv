@@ -3,6 +3,8 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CityBlock do
 
   use Ecto.Schema
 
+  alias Geolix.Adapter.MaxMindCSV.Schema.CityLocation
+
   @primary_key false
 
   schema "geolix_maxmind_csv_city_blocks" do
@@ -17,5 +19,17 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CityBlock do
     field :latitude, :decimal
     field :longitude, :decimal
     field :accuracy_radius, :integer
+
+    has_one :location, CityLocation,
+      references: :geoname_id,
+      foreign_key: :geoname_id
+
+    has_one :location_registered, CityLocation,
+      references: :registered_country_geoname_id,
+      foreign_key: :geoname_id
+
+    has_one :location_represented, CityLocation,
+      references: :represented_country_geoname_id,
+      foreign_key: :geoname_id
   end
 end
