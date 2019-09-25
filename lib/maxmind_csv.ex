@@ -32,7 +32,6 @@ defmodule Geolix.Adapter.MaxMindCSV do
   @behaviour Geolix.Adapter
 
   @impl Geolix.Adapter
-
   def lookup(ip, _opts, %{type: :asn}), do: perform_lookup(ip, ASNBlock, @preloads_asn)
   def lookup(ip, _opts, %{type: :city}), do: perform_lookup(ip, CityBlock, @preloads_city)
 
