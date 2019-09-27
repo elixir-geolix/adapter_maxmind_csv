@@ -19,5 +19,13 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CountryBlock do
     has_one :location, CountryLocation,
       references: :geoname_id,
       foreign_key: :geoname_id
+
+    has_one :location_registered, CountryLocation,
+      references: :registered_country_geoname_id,
+      foreign_key: :geoname_id
+
+    has_one :location_represented, CountryLocation,
+      references: :represented_country_geoname_id,
+      foreign_key: :geoname_id
   end
 end
