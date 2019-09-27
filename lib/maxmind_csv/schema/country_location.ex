@@ -1,5 +1,9 @@
 defmodule Geolix.Adapter.MaxMindCSV.Schema.CountryLocation do
-  @moduledoc false
+  @moduledoc """
+  Sample `Ecto.Schema` to use with the adapter for city databases (locations).
+
+  Table name: `geolix_maxmind_csv_country_locations`.
+  """
 
   use Ecto.Schema
 

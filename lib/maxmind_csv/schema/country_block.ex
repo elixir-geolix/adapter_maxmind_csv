@@ -1,5 +1,9 @@
 defmodule Geolix.Adapter.MaxMindCSV.Schema.CountryBlock do
-  @moduledoc false
+  @moduledoc """
+  Sample `Ecto.Schema` to use with the adapter for country databases (blocks).
+
+  Table name: `geolix_maxmind_csv_country_blocks`.
+  """
 
   use Ecto.Schema
 

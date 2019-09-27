@@ -1,5 +1,9 @@
 defmodule Geolix.Adapter.MaxMindCSV.Schema.ASNBlock do
-  @moduledoc false
+  @moduledoc """
+  Sample `Ecto.Schema` to use with the adapter for ASN databases.
+
+  Table name: `geolix_maxmind_csv_asn_blocks`.
+  """
 
   use Ecto.Schema
 
