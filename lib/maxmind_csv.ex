@@ -17,6 +17,15 @@ defmodule Geolix.Adapter.MaxMindCSV do
             preloads: [:location, :location_registered, :location_represented]
           }
         ]
+
+  ### Adapter Repo
+
+  With the configuration key `:repo` you can define which `Ecto.Repo` should
+  be used for the database access.
+
+  The module `Geolix.Adapter.MaxMindCSV.Repo` can be used if you define the
+  database connection for `otp_app: :geolix_adapter_maxmind_csv` and hook it
+  into your supervision tree.
   """
 
   import Ecto.Query, only: [preload: 2, where: 3]

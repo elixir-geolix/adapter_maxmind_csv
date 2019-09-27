@@ -56,6 +56,11 @@ defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
 
   defp docs do
     [
+      groups_for_modules: [
+        "Ecto Samples": [
+          Geolix.Adapter.MaxMindCSV.Repo
+        ]
+      ],
       main: "Geolix.Adapter.MaxMindCSV",
       source_ref: "master",
       source_url: @url_github
