@@ -3,8 +3,8 @@ defmodule Geolix.Adapter.MaxMindCSV.Repo.Migrations.SchemasCity do
 
   def change do
     create table("geolix_maxmind_csv_city_blocks", primary_key: false) do
-      add :network_lower, :decimal
-      add :network_upper, :decimal
+      add :network_start_integer, :decimal
+      add :network_last_integer, :decimal
       add :geoname_id, :integer
       add :registered_country_geoname_id, :integer
       add :represented_country_geoname_id, :integer
@@ -33,7 +33,12 @@ defmodule Geolix.Adapter.MaxMindCSV.Repo.Migrations.SchemasCity do
       add :is_in_european_union, :boolean
     end
 
-    create index("geolix_maxmind_csv_city_blocks", [:network_lower, :network_upper], unique: true)
+    create index(
+             "geolix_maxmind_csv_city_blocks",
+             [:network_start_integer, :network_last_integer],
+             unique: true
+           )
+
     create index("geolix_maxmind_csv_city_locations", [:geoname_id], unique: true)
   end
 end

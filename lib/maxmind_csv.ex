@@ -44,8 +44,8 @@ defmodule Geolix.Adapter.MaxMindCSV do
 
   If you use a custom schema you have to include two fields:
 
-  - `network_lower`
-  - `network_upper`
+  - `network_start_integer`
+  - `network_last_integer`
 
   For IPv4 entries both fields are used with 32-bit integers, 128-bit for IPv6.
 
@@ -77,7 +77,10 @@ defmodule Geolix.Adapter.MaxMindCSV do
     ip_integer = IP.to_integer(ip)
 
     schema
-    |> where([b], b.network_lower <= ^ip_integer and b.network_upper >= ^ip_integer)
+    |> where(
+      [b],
+      b.network_start_integer <= ^ip_integer and b.network_last_integer >= ^ip_integer
+    )
     |> preload(^preloads)
     |> repo.one()
   end

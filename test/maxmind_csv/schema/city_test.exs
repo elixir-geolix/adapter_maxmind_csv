@@ -7,8 +7,8 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CityTest do
   test "city block" do
     assert {:ok, _} =
              Repo.insert(%CityBlock{
-               network_lower: 0,
-               network_upper: 99,
+               network_start_integer: 0,
+               network_last_integer: 99,
                geoname_id: 1,
                registered_country_geoname_id: 1,
                represented_country_geoname_id: 1,

@@ -40,8 +40,8 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.CountryTest do
 
     result =
       Repo.insert!(%CountryBlock{
-        network_lower: Decimal.new(16_843_008),
-        network_upper: Decimal.new(16_843_263),
+        network_start_integer: Decimal.new(16_843_008),
+        network_last_integer: Decimal.new(16_843_263),
         geoname_id: 1,
         registered_country_geoname_id: 2,
         represented_country_geoname_id: 3,

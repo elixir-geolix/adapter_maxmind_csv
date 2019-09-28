@@ -12,8 +12,8 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CityBlock do
   @primary_key false
 
   schema "geolix_maxmind_csv_city_blocks" do
-    field :network_lower, :decimal, primary_key: true
-    field :network_upper, :decimal, primary_key: true
+    field :network_start_integer, :decimal, primary_key: true
+    field :network_last_integer, :decimal, primary_key: true
     field :geoname_id, :integer
     field :registered_country_geoname_id, :integer
     field :represented_country_geoname_id, :integer

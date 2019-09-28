@@ -6,8 +6,8 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.ASNTest do
   test "lookup :asn" do
     result =
       Repo.insert!(%ASNBlock{
-        network_lower: Decimal.new(16_843_008),
-        network_upper: Decimal.new(16_843_263),
+        network_start_integer: Decimal.new(16_843_008),
+        network_last_integer: Decimal.new(16_843_263),
         autonomous_system_number: 1,
         autonomous_system_organization: "test"
       })
