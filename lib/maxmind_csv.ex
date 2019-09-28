@@ -54,6 +54,16 @@ defmodule Geolix.Adapter.MaxMindCSV do
   When using the packaged schemas you need to create the underlying tables
   accordingly. Working migrations you can copy to your project can be found in
   the directory `priv/repo/migrations` of the downloaded dependency.
+
+  ## Adapter Database
+
+  The database lookups are done using an integer representation of the
+  requested IP.
+
+  To use the official MaxMind CSV databases you ned to convert them to include
+  this network integer using the
+  [GeoIP2 CSV Format Converter](https://github.com/maxmind/geoip2-csv-converter)
+  with the parameter `-include-integer-range`.
   """
 
   import Ecto.Query, only: [preload: 2, where: 3]
