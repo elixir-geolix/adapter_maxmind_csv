@@ -48,6 +48,12 @@ defmodule Geolix.Adapter.MaxMindCSV do
   - `network_upper`
 
   For IPv4 entries both fields are used with 32-bit integers, 128-bit for IPv6.
+
+  #### Adapter Schema Migrations
+
+  When using the packaged schemas you need to create the underlying tables
+  accordingly. Working migrations you can copy to your project can be found in
+  the directory `priv/repo/migrations` of the downloaded dependency.
   """
 
   import Ecto.Query, only: [preload: 2, where: 3]
