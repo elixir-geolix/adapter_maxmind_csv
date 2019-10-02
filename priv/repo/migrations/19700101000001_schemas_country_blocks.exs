@@ -1,4 +1,4 @@
-defmodule Geolix.Adapter.MaxMindCSV.Repo.Migrations.SchemasCountry do
+defmodule Geolix.Adapter.MaxMindCSV.Repo.Migrations.SchemasCountryBlocks do
   use Ecto.Migration
 
   def change do
@@ -12,22 +12,10 @@ defmodule Geolix.Adapter.MaxMindCSV.Repo.Migrations.SchemasCountry do
       add :is_satellite_provider, :boolean
     end
 
-    create table("geolix_maxmind_csv_country_locations", primary_key: false) do
-      add :geoname_id, :integer
-      add :locale_code, :string
-      add :continent_code, :string
-      add :continent_name, :string
-      add :country_iso_code, :string
-      add :country_name, :string
-      add :is_in_european_union, :boolean
-    end
-
     create index(
              "geolix_maxmind_csv_country_blocks",
              [:network_start_integer, :network_last_integer],
              unique: true
            )
-
-    create index("geolix_maxmind_csv_country_locations", [:geoname_id], unique: true)
   end
 end
