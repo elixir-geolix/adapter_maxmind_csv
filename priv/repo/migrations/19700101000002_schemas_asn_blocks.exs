@@ -1,4 +1,4 @@
-defmodule Geolix.Adapter.MaxMindCSV.Repo.Migrations.SchemasASN do
+defmodule Geolix.Adapter.MaxMindCSV.Repo.Migrations.SchemasASNBlocks do
   use Ecto.Migration
 
   def change do
