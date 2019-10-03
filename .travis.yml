@@ -7,9 +7,20 @@ jobs:
       stage: test
       elixir: 1.6.6
       otp_release: 19.3
-      services:
-        - postgresql
+      addons:
+        postgresql: 9.6
+        apt:
+          packages:
+            - postgresql-server-dev-9.6
+      before_install: |-
+        wget -q 'https://github.com/RhodiumToad/ip4r/archive/2.4.1.tar.gz'
+        tar -xzf 2.4.1.tar.gz
+
+        pushd ip4r-2.4.1 > /dev/null
+          make && sudo make install
+        popd > /dev/null
       before_script:
+        - psql -c "CREATE EXTENSION ip4r;" -U postgres
         - psql -c "ALTER USER CURRENT_USER WITH PASSWORD 'postgres';" -U postgres
     - <<: *test
       elixir: 1.7.4
