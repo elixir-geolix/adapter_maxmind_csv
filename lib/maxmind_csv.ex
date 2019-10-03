@@ -42,12 +42,8 @@ defmodule Geolix.Adapter.MaxMindCSV do
   - `Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal`
     - preloads: `[:location, :location_registered, :location_represented]`
 
-  If you use a custom schema you have to include two fields:
-
-  - `network_start_integer`
-  - `network_last_integer`
-
-  For IPv4 entries both fields are used with 32-bit integers, 128-bit for IPv6.
+  If you use a custom schema you need to implement the
+  `Geolix.Adapter.MaxMindCSV.Block` behaviour.
 
   #### Adapter Schema Migrations
 
@@ -66,22 +62,10 @@ defmodule Geolix.Adapter.MaxMindCSV do
   with the parameter `-include-integer-range`.
   """
 
-  import Ecto.Query, only: [preload: 2, where: 3]
-
-  alias Geolix.Adapter.MaxMindCSV.IP
-
   @behaviour Geolix.Adapter
 
   @impl Geolix.Adapter
   def lookup(ip, _opts, %{repo: repo, schema: schema, preloads: preloads}) do
-    ip_integer = IP.to_integer(ip)
-
-    schema
-    |> where(
-      [b],
-      b.network_start_integer <= ^ip_integer and b.network_last_integer >= ^ip_integer
-    )
-    |> preload(^preloads)
-    |> repo.one()
+    schema.find(ip, repo, preloads)
   end
 end

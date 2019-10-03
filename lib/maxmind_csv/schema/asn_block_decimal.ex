@@ -7,6 +7,12 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.ASNBlockDecimal do
 
   use Ecto.Schema
 
+  import Ecto.Query, only: [preload: 2, where: 3]
+
+  alias Geolix.Adapter.MaxMindCSV.IP
+
+  @behaviour Geolix.Adapter.MaxMindCSV.Block
+
   @primary_key false
 
   schema "geolix_maxmind_csv_asn_blocks_decimal" do
@@ -14,5 +20,18 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.ASNBlockDecimal do
     field :network_last_integer, :decimal, primary_key: true
     field :autonomous_system_number, :integer
     field :autonomous_system_organization, :string
+  end
+
+  @impl Geolix.Adapter.MaxMindCSV.Block
+  def find(ip, repo, preloads) do
+    ip_integer = IP.to_integer(ip)
+
+    __MODULE__
+    |> where(
+      [b],
+      b.network_start_integer <= ^ip_integer and b.network_last_integer >= ^ip_integer
+    )
+    |> preload(^preloads)
+    |> repo.one()
   end
 end

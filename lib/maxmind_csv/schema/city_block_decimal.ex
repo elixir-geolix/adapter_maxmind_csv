@@ -7,7 +7,12 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal do
 
   use Ecto.Schema
 
+  import Ecto.Query, only: [preload: 2, where: 3]
+
+  alias Geolix.Adapter.MaxMindCSV.IP
   alias Geolix.Adapter.MaxMindCSV.Schema.CityLocation
+
+  @behaviour Geolix.Adapter.MaxMindCSV.Block
 
   @primary_key false
 
@@ -35,5 +40,18 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal do
     has_one :location_represented, CityLocation,
       references: :represented_country_geoname_id,
       foreign_key: :geoname_id
+  end
+
+  @impl Geolix.Adapter.MaxMindCSV.Block
+  def find(ip, repo, preloads) do
+    ip_integer = IP.to_integer(ip)
+
+    __MODULE__
+    |> where(
+      [b],
+      b.network_start_integer <= ^ip_integer and b.network_last_integer >= ^ip_integer
+    )
+    |> preload(^preloads)
+    |> repo.one()
   end
 end
