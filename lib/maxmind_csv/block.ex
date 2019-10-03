@@ -6,5 +6,5 @@ defmodule Geolix.Adapter.MaxMindCSV.Block do
   @doc """
   Retrieve the dataset for an IP if available.
   """
-  @callback find(ip :: :inet.ip_address(), repo :: Ecto.Repo.t(), preloads :: [atom]) :: map | nil
+  @callback find(ip :: :inet.ip_address(), repo :: Ecto.Repo.t()) :: map | nil
 end

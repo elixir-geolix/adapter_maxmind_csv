@@ -81,8 +81,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.CityTest do
       id: :csv_lookup_city,
       adapter: Geolix.Adapter.MaxMindCSV,
       repo: Geolix.Adapter.MaxMindCSV.Repo,
-      schema: Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal,
-      preloads: [:location, :location_registered, :location_represented]
+      schema: Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal
     }
 
     assert :ok == Geolix.load_database(database)

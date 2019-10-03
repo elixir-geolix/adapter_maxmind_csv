@@ -3,6 +3,8 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal do
   Sample `Ecto.Schema` to use with the adapter for city databases (blocks).
 
   Table name: `geolix_maxmind_csv_city_blocks_decimal`.
+
+  Preloads: `Geolix.Adapter.MaxMindCSV.Schema.CityLocation`
   """
 
   use Ecto.Schema
@@ -43,7 +45,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal do
   end
 
   @impl Geolix.Adapter.MaxMindCSV.Block
-  def find(ip, repo, preloads) do
+  def find(ip, repo) do
     ip_integer = IP.to_integer(ip)
 
     __MODULE__
@@ -51,7 +53,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal do
       [b],
       b.network_start_integer <= ^ip_integer and b.network_last_integer >= ^ip_integer
     )
-    |> preload(^preloads)
+    |> preload([:location, :location_registered, :location_represented])
     |> repo.one()
   end
 end

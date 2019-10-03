@@ -3,6 +3,8 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal do
   Sample `Ecto.Schema` to use with the adapter for country databases (blocks).
 
   Table name: `geolix_maxmind_csv_country_blocks`.
+
+  Preloads: `Geolix.Adapter.MaxMindCSV.Schema.CountryLocation`
   """
 
   use Ecto.Schema
@@ -39,7 +41,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal do
   end
 
   @impl Geolix.Adapter.MaxMindCSV.Block
-  def find(ip, repo, preloads) do
+  def find(ip, repo) do
     ip_integer = IP.to_integer(ip)
 
     __MODULE__
@@ -47,7 +49,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal do
       [b],
       b.network_start_integer <= ^ip_integer and b.network_last_integer >= ^ip_integer
     )
-    |> preload(^preloads)
+    |> preload([:location, :location_registered, :location_represented])
     |> repo.one()
   end
 end

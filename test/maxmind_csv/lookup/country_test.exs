@@ -56,8 +56,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.CountryTest do
       id: :csv_lookup_country,
       adapter: Geolix.Adapter.MaxMindCSV,
       repo: Geolix.Adapter.MaxMindCSV.Repo,
-      schema: Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal,
-      preloads: [:location, :location_represented, :location_registered]
+      schema: Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal
     }
 
     assert :ok == Geolix.load_database(database)

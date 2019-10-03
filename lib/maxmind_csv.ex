@@ -13,8 +13,7 @@ defmodule Geolix.Adapter.MaxMindCSV do
             id: :my_csv_database,
             adapter: Geolix.Adapter.MaxMindCSV
             repo: Geolix.Adapter.MaxMindCSV.Repo,
-            schema: Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal,
-            preloads: [:location, :location_registered, :location_represented]
+            schema: Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal
           }
         ]
 
@@ -27,20 +26,17 @@ defmodule Geolix.Adapter.MaxMindCSV do
   database connection for `otp_app: :geolix_adapter_maxmind_csv` and hook it
   into your supervision tree.
 
-  ### Adapter Schemas (and Preloads)
+  ### Adapter Schemas
 
-  The configuration keys `:schema` and `:preloads` define the database result
-  to fetch for an IP result.
+  The configuration key `:schema` define the database result to
+  fetch for an IP result.
 
   The following schemas are provided but should be replaced with your own if
   you have custom requirements for the underlying database structure:
 
   - `Geolix.Adapter.MaxMindCSV.Schema.ASNBlockDecimal`
-    - no preloads
   - `Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal`
-    - preloads: `[:location, :location_registered, :location_represented]`
   - `Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal`
-    - preloads: `[:location, :location_registered, :location_represented]`
 
   If you use a custom schema you need to implement the
   `Geolix.Adapter.MaxMindCSV.Block` behaviour.
@@ -65,7 +61,5 @@ defmodule Geolix.Adapter.MaxMindCSV do
   @behaviour Geolix.Adapter
 
   @impl Geolix.Adapter
-  def lookup(ip, _opts, %{repo: repo, schema: schema, preloads: preloads}) do
-    schema.find(ip, repo, preloads)
-  end
+  def lookup(ip, _opts, %{repo: repo, schema: schema}), do: schema.find(ip, repo)
 end
