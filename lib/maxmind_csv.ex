@@ -13,7 +13,7 @@ defmodule Geolix.Adapter.MaxMindCSV do
             id: :my_csv_database,
             adapter: Geolix.Adapter.MaxMindCSV
             repo: Geolix.Adapter.MaxMindCSV.Repo,
-            schema: Geolix.Adapter.MaxMindCSV.Schema.CityBlock,
+            schema: Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal,
             preloads: [:location, :location_registered, :location_represented]
           }
         ]
@@ -35,11 +35,11 @@ defmodule Geolix.Adapter.MaxMindCSV do
   The following schemas are provided but should be replaced with your own if
   you have custom requirements for the underlying database structure:
 
-  - `Geolix.Adapter.MaxMindCSV.Schema.ASNBlock`
+  - `Geolix.Adapter.MaxMindCSV.Schema.ASNBlockDecimal`
     - no preloads
-  - `Geolix.Adapter.MaxMindCSV.Schema.CityBlock`
+  - `Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal`
     - preloads: `[:location, :location_registered, :location_represented]`
-  - `Geolix.Adapter.MaxMindCSV.Schema.CountryBlock`
+  - `Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal`
     - preloads: `[:location, :location_registered, :location_represented]`
 
   If you use a custom schema you have to include two fields:

@@ -1,12 +1,12 @@
 defmodule Geolix.Adapter.MaxMindCSV.Schema.CountryTest do
   use Geolix.Adapter.MaxMindCSV.RepoCase
 
-  alias Geolix.Adapter.MaxMindCSV.Schema.CountryBlock
+  alias Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal
   alias Geolix.Adapter.MaxMindCSV.Schema.CountryLocation
 
-  test "country block" do
+  test "country block decimal" do
     assert {:ok, _} =
-             Repo.insert(%CountryBlock{
+             Repo.insert(%CountryBlockDecimal{
                network_start_integer: 0,
                network_last_integer: 99,
                geoname_id: 1,

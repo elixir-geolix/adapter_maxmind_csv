@@ -1,12 +1,12 @@
 defmodule Geolix.Adapter.MaxMindCSV.Schema.CityTest do
   use Geolix.Adapter.MaxMindCSV.RepoCase
 
-  alias Geolix.Adapter.MaxMindCSV.Schema.CityBlock
+  alias Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal
   alias Geolix.Adapter.MaxMindCSV.Schema.CityLocation
 
-  test "city block" do
+  test "city block decimal" do
     assert {:ok, _} =
-             Repo.insert(%CityBlock{
+             Repo.insert(%CityBlockDecimal{
                network_start_integer: 0,
                network_last_integer: 99,
                geoname_id: 1,

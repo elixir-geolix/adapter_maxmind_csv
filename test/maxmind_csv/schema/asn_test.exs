@@ -1,11 +1,11 @@
 defmodule Geolix.Adapter.MaxMindCSV.Schema.ASNTest do
   use Geolix.Adapter.MaxMindCSV.RepoCase
 
-  alias Geolix.Adapter.MaxMindCSV.Schema.ASNBlock
+  alias Geolix.Adapter.MaxMindCSV.Schema.ASNBlockDecimal
 
-  test "asn block" do
+  test "asn block decimal" do
     assert {:ok, _} =
-             Repo.insert(%ASNBlock{
+             Repo.insert(%ASNBlockDecimal{
                network_start_integer: 0,
                network_last_integer: 99,
                autonomous_system_number: 1,

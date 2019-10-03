@@ -1,11 +1,11 @@
 defmodule Geolix.Adapter.MaxMindCSV.Lookup.ASNTest do
   use Geolix.Adapter.MaxMindCSV.RepoCase
 
-  alias Geolix.Adapter.MaxMindCSV.Schema.ASNBlock
+  alias Geolix.Adapter.MaxMindCSV.Schema.ASNBlockDecimal
 
   test "lookup :asn" do
     result =
-      Repo.insert!(%ASNBlock{
+      Repo.insert!(%ASNBlockDecimal{
         network_start_integer: Decimal.new(16_843_008),
         network_last_integer: Decimal.new(16_843_263),
         autonomous_system_number: 1,
@@ -16,7 +16,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.ASNTest do
       id: :csv_lookup_asn,
       adapter: Geolix.Adapter.MaxMindCSV,
       repo: Geolix.Adapter.MaxMindCSV.Repo,
-      schema: Geolix.Adapter.MaxMindCSV.Schema.ASNBlock,
+      schema: Geolix.Adapter.MaxMindCSV.Schema.ASNBlockDecimal,
       preloads: []
     }
 

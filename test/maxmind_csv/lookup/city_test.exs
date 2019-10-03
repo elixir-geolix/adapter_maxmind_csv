@@ -1,7 +1,7 @@
 defmodule Geolix.Adapter.MaxMindCSV.Lookup.CityTest do
   use Geolix.Adapter.MaxMindCSV.RepoCase
 
-  alias Geolix.Adapter.MaxMindCSV.Schema.CityBlock
+  alias Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal
   alias Geolix.Adapter.MaxMindCSV.Schema.CityLocation
 
   test "lookup :city" do
@@ -60,7 +60,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.CityTest do
       })
 
     result =
-      Repo.insert!(%CityBlock{
+      Repo.insert!(%CityBlockDecimal{
         network_start_integer: Decimal.new(16_843_008),
         network_last_integer: Decimal.new(16_843_263),
         geoname_id: 1,
@@ -81,7 +81,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.CityTest do
       id: :csv_lookup_city,
       adapter: Geolix.Adapter.MaxMindCSV,
       repo: Geolix.Adapter.MaxMindCSV.Repo,
-      schema: Geolix.Adapter.MaxMindCSV.Schema.CityBlock,
+      schema: Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal,
       preloads: [:location, :location_registered, :location_represented]
     }
 

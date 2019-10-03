@@ -1,7 +1,7 @@
 defmodule Geolix.Adapter.MaxMindCSV.Lookup.CountryTest do
   use Geolix.Adapter.MaxMindCSV.RepoCase
 
-  alias Geolix.Adapter.MaxMindCSV.Schema.CountryBlock
+  alias Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal
   alias Geolix.Adapter.MaxMindCSV.Schema.CountryLocation
 
   test "lookup :country" do
@@ -39,7 +39,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.CountryTest do
       })
 
     result =
-      Repo.insert!(%CountryBlock{
+      Repo.insert!(%CountryBlockDecimal{
         network_start_integer: Decimal.new(16_843_008),
         network_last_integer: Decimal.new(16_843_263),
         geoname_id: 1,
@@ -56,7 +56,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.CountryTest do
       id: :csv_lookup_country,
       adapter: Geolix.Adapter.MaxMindCSV,
       repo: Geolix.Adapter.MaxMindCSV.Repo,
-      schema: Geolix.Adapter.MaxMindCSV.Schema.CountryBlock,
+      schema: Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal,
       preloads: [:location, :location_represented, :location_registered]
     }
 
