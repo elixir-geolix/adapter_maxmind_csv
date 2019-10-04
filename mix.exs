@@ -51,7 +51,8 @@ defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
         :race_conditions,
         :underspecs,
         :unmatched_returns
-      ]
+      ],
+      plt_add_apps: [:ecto_network]
     ]
   end
 
