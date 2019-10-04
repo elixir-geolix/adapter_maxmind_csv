@@ -1,4 +1,4 @@
-defmodule Geolix.Adapter.MaxMindCSV.Lookup.ASNTest do
+defmodule Geolix.Adapter.MaxMindCSV.Lookup.ASNDecimalTest do
   use Geolix.Adapter.MaxMindCSV.RepoCase
 
   alias Geolix.Adapter.MaxMindCSV.Schema.ASNBlockDecimal
@@ -13,7 +13,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.ASNTest do
       })
 
     database = %{
-      id: :csv_lookup_asn,
+      id: :csv_lookup_asn_decimal,
       adapter: Geolix.Adapter.MaxMindCSV,
       repo: Geolix.Adapter.MaxMindCSV.Repo,
       schema: Geolix.Adapter.MaxMindCSV.Schema.ASNBlockDecimal

@@ -1,4 +1,4 @@
-defmodule Geolix.Adapter.MaxMindCSV.Lookup.CityTest do
+defmodule Geolix.Adapter.MaxMindCSV.Lookup.CityDecimalTest do
   use Geolix.Adapter.MaxMindCSV.RepoCase
 
   alias Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal
@@ -78,7 +78,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.CityTest do
       })
 
     database = %{
-      id: :csv_lookup_city,
+      id: :csv_lookup_city_decimal,
       adapter: Geolix.Adapter.MaxMindCSV,
       repo: Geolix.Adapter.MaxMindCSV.Repo,
       schema: Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal

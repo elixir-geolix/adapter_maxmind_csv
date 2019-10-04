@@ -1,4 +1,4 @@
-defmodule Geolix.Adapter.MaxMindCSV.Lookup.CountryTest do
+defmodule Geolix.Adapter.MaxMindCSV.Lookup.CountryDecimalTest do
   use Geolix.Adapter.MaxMindCSV.RepoCase
 
   alias Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal
@@ -53,7 +53,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.CountryTest do
       })
 
     database = %{
-      id: :csv_lookup_country,
+      id: :csv_lookup_country_decimal,
       adapter: Geolix.Adapter.MaxMindCSV,
       repo: Geolix.Adapter.MaxMindCSV.Repo,
       schema: Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal
