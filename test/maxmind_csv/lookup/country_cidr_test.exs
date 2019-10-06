@@ -1,6 +1,7 @@
 defmodule Geolix.Adapter.MaxMindCSV.Lookup.CountryCIDRTest do
   use Geolix.Adapter.MaxMindCSV.RepoCase
 
+  alias Geolix.Adapter.MaxMindCSV.Repo
   alias Geolix.Adapter.MaxMindCSV.Schema.CountryBlockCIDR
   alias Geolix.Adapter.MaxMindCSV.Schema.CountryLocation
 
@@ -54,8 +55,8 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.CountryCIDRTest do
     database = %{
       id: :csv_lookup_country_cidr,
       adapter: Geolix.Adapter.MaxMindCSV,
-      repo: Geolix.Adapter.MaxMindCSV.Repo,
-      schema: Geolix.Adapter.MaxMindCSV.Schema.CountryBlockCIDR
+      repo: Repo,
+      schema: CountryBlockCIDR
     }
 
     assert :ok == Geolix.load_database(database)

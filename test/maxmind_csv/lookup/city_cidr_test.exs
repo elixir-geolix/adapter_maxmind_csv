@@ -1,6 +1,7 @@
 defmodule Geolix.Adapter.MaxMindCSV.Lookup.CityCIDRTest do
   use Geolix.Adapter.MaxMindCSV.RepoCase
 
+  alias Geolix.Adapter.MaxMindCSV.Repo
   alias Geolix.Adapter.MaxMindCSV.Schema.CityBlockCIDR
   alias Geolix.Adapter.MaxMindCSV.Schema.CityLocation
 
@@ -79,8 +80,8 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.CityCIDRTest do
     database = %{
       id: :csv_lookup_city_cidr,
       adapter: Geolix.Adapter.MaxMindCSV,
-      repo: Geolix.Adapter.MaxMindCSV.Repo,
-      schema: Geolix.Adapter.MaxMindCSV.Schema.CityBlockCIDR
+      repo: Repo,
+      schema: CityBlockCIDR
     }
 
     assert :ok == Geolix.load_database(database)

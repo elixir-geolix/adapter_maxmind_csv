@@ -1,6 +1,7 @@
 defmodule Geolix.Adapter.MaxMindCSV.Lookup.ASNCIDRTest do
   use Geolix.Adapter.MaxMindCSV.RepoCase
 
+  alias Geolix.Adapter.MaxMindCSV.Repo
   alias Geolix.Adapter.MaxMindCSV.Schema.ASNBlockCIDR
 
   test "lookup :asn" do
@@ -14,8 +15,8 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.ASNCIDRTest do
     database = %{
       id: :csv_lookup_asn_cidr,
       adapter: Geolix.Adapter.MaxMindCSV,
-      repo: Geolix.Adapter.MaxMindCSV.Repo,
-      schema: Geolix.Adapter.MaxMindCSV.Schema.ASNBlockCIDR
+      repo: Repo,
+      schema: ASNBlockCIDR
     }
 
     assert :ok == Geolix.load_database(database)
