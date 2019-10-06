@@ -11,7 +11,7 @@ defmodule Geolix.Adapter.MaxMindCSV do
         databases: [
           %{
             id: :my_csv_database,
-            adapter: Geolix.Adapter.MaxMindCSV
+            adapter: Geolix.Adapter.MaxMindCSV,
             repo: Geolix.Adapter.MaxMindCSV.Repo,
             schema: Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal
           }
