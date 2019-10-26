@@ -8,7 +8,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
       app: :geolix_adapter_maxmind_csv,
       name: "Geolix Adapter: MaxMind CSV",
       version: "0.1.0-dev",
-      elixir: "~> 1.6",
+      elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
       aliases: aliases(),
       deps: deps(),
