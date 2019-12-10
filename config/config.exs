@@ -10,7 +10,8 @@ if Mix.env() == :test do
     password: "postgres",
     database: "geolix_adapter_maxmind_csv",
     hostname: "localhost",
-    pool: Ecto.Adapters.SQL.Sandbox
+    pool: Ecto.Adapters.SQL.Sandbox,
+    types: Geolix.Adapter.MaxMindCSV.PostgresTypes
 
   config :logger, level: :warn
 end
