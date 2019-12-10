@@ -61,9 +61,12 @@ defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
       groups_for_modules: [
         "Ecto Samples": [
           Geolix.Adapter.MaxMindCSV.Repo,
+          Geolix.Adapter.MaxMindCSV.Schema.ASNBlockCIDR,
           Geolix.Adapter.MaxMindCSV.Schema.ASNBlockDecimal,
+          Geolix.Adapter.MaxMindCSV.Schema.CityBlockCIDR,
           Geolix.Adapter.MaxMindCSV.Schema.CityBlockDecimal,
           Geolix.Adapter.MaxMindCSV.Schema.CityLocation,
+          Geolix.Adapter.MaxMindCSV.Schema.CountryBlockCIDR,
           Geolix.Adapter.MaxMindCSV.Schema.CountryBlockDecimal,
           Geolix.Adapter.MaxMindCSV.Schema.CountryLocation
         ]
