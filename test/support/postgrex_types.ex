@@ -1,4 +1,4 @@
 Postgrex.Types.define(
-  Geolix.Adapter.MaxMindCSV.PostgresTypes,
+  Geolix.Adapter.MaxMindCSV.PostgrexTypes,
   EctoIPRange.Postgrex.extensions() ++ Ecto.Adapters.Postgres.extensions()
 )
