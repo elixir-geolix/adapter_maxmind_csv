@@ -44,7 +44,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.CountryIP4RTest do
         network: %EctoIPRange.IP4R{
           first_ip: {1, 1, 1, 0},
           last_ip: {1, 1, 1, 255},
-          range: "1.1.1.0-1.1.1.255"
+          range: "1.1.1.0/24"
         },
         geoname_id: 1,
         registered_country_geoname_id: 2,

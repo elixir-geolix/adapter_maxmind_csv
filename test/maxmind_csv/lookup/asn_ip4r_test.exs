@@ -10,7 +10,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Lookup.ASNIP4RTest do
         network: %EctoIPRange.IP4R{
           first_ip: {1, 1, 1, 0},
           last_ip: {1, 1, 1, 255},
-          range: "1.1.1.0-1.1.1.255"
+          range: "1.1.1.0/24"
         },
         autonomous_system_number: 1,
         autonomous_system_organization: "test"
