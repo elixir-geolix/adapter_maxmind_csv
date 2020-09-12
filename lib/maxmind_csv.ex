@@ -58,8 +58,19 @@ defmodule Geolix.Adapter.MaxMindCSV do
   with the parameter `-include-integer-range`.
   """
 
+  @typedoc """
+  Extended base database type.
+  """
+  @type database :: %{
+          required(:id) => atom,
+          required(:adapter) => module,
+          required(:repo) => module,
+          required(:schema) => module
+        }
+
   @behaviour Geolix.Adapter
 
   @impl Geolix.Adapter
+  @spec lookup(ip :: :inet.ip_address(), opts :: Keyword.t(), database :: database) :: map | nil
   def lookup(ip, _opts, %{repo: repo, schema: schema}), do: schema.find(ip, repo)
 end
