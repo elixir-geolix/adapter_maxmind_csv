@@ -53,7 +53,9 @@ defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
         :underspecs,
         :unmatched_returns
       ],
-      plt_add_apps: [:ecto_ip_range, :ecto_network]
+      plt_add_apps: [:ecto_ip_range, :ecto_network],
+      plt_core_path: "plts",
+      plt_file: {:no_warn, "plts/dialyzer.plt"}
     ]
   end
 
