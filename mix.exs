@@ -3,12 +3,13 @@ defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
 
   @url_changelog "https://hexdocs.pm/geolix_adapter_maxmind_csv/changelog.html"
   @url_github "https://github.com/elixir-geolix/adapter_maxmind_csv"
+  @version "0.1.0-dev"
 
   def project do
     [
       app: :geolix_adapter_maxmind_csv,
       name: "Geolix Adapter: MaxMind CSV",
-      version: "0.1.0-dev",
+      version: @version,
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
       aliases: aliases(),
@@ -81,7 +82,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
         ]
       ],
       main: "Geolix.Adapter.MaxMindCSV",
-      source_ref: "master",
+      source_ref: "v#{@version}",
       source_url: @url_github
     ]
   end
