@@ -1,6 +1,7 @@
 defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
   use Mix.Project
 
+  @url_changelog "https://hexdocs.pm/geolix_adapter_maxmind_csv/changelog.html"
   @url_github "https://github.com/elixir-geolix/adapter_maxmind_csv"
 
   def project do
@@ -91,8 +92,11 @@ defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
   defp package do
     %{
       files: ["CHANGELOG.md", "LICENSE", "mix.exs", "README.md", "lib", "priv"],
-      licenses: ["Apache 2.0"],
-      links: %{"GitHub" => @url_github}
+      licenses: ["Apache-2.0"],
+      links: %{
+        "Changelog" => @url_changelog,
+        "GitHub" => @url_github
+      }
     }
   end
 end
