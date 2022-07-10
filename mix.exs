@@ -36,7 +36,7 @@ defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
     [
       {:credo, "~> 1.0", only: :dev, runtime: false},
       {:dialyxir, "~> 1.0", only: :dev, runtime: false},
-      {:ecto_ip_range, "~> 0.1.0", optional: true},
+      {:ecto_ip_range, "~> 0.2.0", optional: true},
       {:ecto_network, "~> 1.0", optional: true},
       {:ecto_sql, "~> 3.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
