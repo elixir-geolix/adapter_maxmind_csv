@@ -50,7 +50,6 @@ defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
     [
       flags: [
         :error_handling,
-        :race_conditions,
         :underspecs,
         :unmatched_returns
       ],
