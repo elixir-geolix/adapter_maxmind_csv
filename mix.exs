@@ -1,4 +1,4 @@
-defmodule Geolix.Adapter.MaxMindCSV.Mixfile do
+defmodule Geolix.Adapter.MaxMindCSV.MixProject do
   use Mix.Project
 
   @url_changelog "https://hexdocs.pm/geolix_adapter_maxmind_csv/changelog.html"
