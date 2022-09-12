@@ -1,7 +1,7 @@
 defmodule Geolix.Adapter.MaxMindCSV.IP do
   @moduledoc false
 
-  use Bitwise, only_operators: true
+  import Bitwise
 
   @doc """
   Converts an IP tuple to an integer for database lookups.
