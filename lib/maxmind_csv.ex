@@ -52,7 +52,7 @@ defmodule Geolix.Adapter.MaxMindCSV do
   The database lookups are done using an integer representation of the
   requested IP.
 
-  To use the official MaxMind CSV databases you ned to convert them to include
+  To use the official MaxMind CSV databases you need to convert them to include
   this network integer using the
   [GeoIP2 CSV Format Converter](https://github.com/maxmind/geoip2-csv-converter)
   with the parameter `-include-integer-range`.
