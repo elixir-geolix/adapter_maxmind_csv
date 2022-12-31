@@ -40,7 +40,7 @@ defmodule Geolix.Adapter.MaxMindCSV.MixProject do
       {:ecto_network, "~> 1.0", optional: true},
       {:ecto_sql, "~> 3.0"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
-      {:excoveralls, "~> 0.14.0", only: :test, runtime: false},
+      {:excoveralls, "~> 0.15.0", only: :test, runtime: false},
       {:geolix, "~> 2.0"},
       {:postgrex, ">= 0.0.0"}
     ]
