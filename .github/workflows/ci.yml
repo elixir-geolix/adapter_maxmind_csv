@@ -24,8 +24,8 @@ jobs:
         id: setup
         uses: erlef/setup-beam@v1
         with:
-          elixir-version: '1.17.3'
-          otp-version: '26.2'
+          elixir-version: '1.18.4'
+          otp-version: '27.3'
 
       - name: mix-cache
         uses: actions/cache@v5
@@ -79,8 +79,8 @@ jobs:
         id: setup
         uses: erlef/setup-beam@v1
         with:
-          elixir-version: '1.17.3'
-          otp-version: '26.2'
+          elixir-version: '1.18.4'
+          otp-version: '27.3'
 
       - name: mix-cache
         uses: actions/cache@v5
@@ -123,6 +123,8 @@ jobs:
             otp: '26.2'
           - elixir: '1.17.3'
             otp: '26.2'
+          - elixir: '1.18.4'
+            otp: '27.3'
 
     services:
       postgresql:
